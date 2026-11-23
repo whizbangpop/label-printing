@@ -1,0 +1,47 @@
+{
+  "id": "quick-text",
+  "name": "Quick text",
+  "description": "One or two lines of text, auto-sized, on 29 mm tape 90 mm long. Good for shelves, boxes and cables.",
+  "category": "General",
+  "label": "29",
+  "lengthMm": 90,
+  "rotate": 90,
+  "fields": [
+    {
+      "name": "text",
+      "label": "Text",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Christmas decorations"
+    },
+    {
+      "name": "border",
+      "label": "Rounded border",
+      "type": "checkbox"
+    }
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "x": 24,
+      "y": 16,
+      "w": 1015,
+      "h": 274,
+      "text": "{{text}}",
+      "fontSize": 150,
+      "minFontSize": 24,
+      "bold": true,
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 4,
+      "y": 4,
+      "w": 1055,
+      "h": 298,
+      "stroke": 6,
+      "radius": 18,
+      "showIf": "border"
+    }
+  ]
+}

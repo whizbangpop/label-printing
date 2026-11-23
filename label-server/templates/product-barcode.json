@@ -1,0 +1,18 @@
+{
+  "id": "product-barcode",
+  "name": "Product / shelf barcode",
+  "description": "Product name, price and a Code 128 barcode on a 29 × 90 mm label (DK-11201).",
+  "category": "Inventory",
+  "label": "29x90",
+  "rotate": 90,
+  "fields": [
+    { "name": "product", "label": "Product", "type": "text", "required": true, "placeholder": "M6 wing nuts (50)" },
+    { "name": "sku", "label": "SKU / barcode", "type": "text", "required": true, "placeholder": "WN-M6-050" },
+    { "name": "price", "label": "Price", "type": "text", "placeholder": "£4.99" }
+  ],
+  "elements": [
+    { "type": "text", "x": 20, "y": 10, "w": 700, "h": 120, "text": "{{product}}", "fontSize": 56, "minFontSize": 24, "bold": true, "valign": "top" },
+    { "type": "text", "x": 730, "y": 10, "w": 241, "h": 120, "text": "{{price}}", "fontSize": 70, "minFontSize": 30, "bold": true, "align": "right", "wrap": false },
+    { "type": "barcode", "x": 20, "y": 140, "w": 951, "h": 156, "value": "{{sku}}", "bcid": "code128", "barHeightMm": 9, "textSize": 9 }
+  ]
+}

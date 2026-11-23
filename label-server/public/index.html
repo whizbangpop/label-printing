@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Label Printing System</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="header-title">Label Printing System</div>
+    <div class="header-info">
+      <span id="user"></span>
+    </div>
+  </div>
+
+  <div class="menubar">
+    <span class="tab active">Print Labels</span>
+    <div id="printerStatus" class="printer-status off"><span class="sq"></span><span class="txt">Printer: checking...</span></div>
+  </div>
+
+  <div class="statusbar">
+    <span>Current Template: <b id="currentTpl">&lt;None&gt;</b></span>
+  </div>
+
+  <div class="layout">
+    <!-- Left column: templates -->
+    <div class="box templates">
+      <div class="box-title">Select Template</div>
+      <div class="box-body">
+        <div class="search-row">
+          <label for="templateSearch">Find:</label>
+          <input id="templateSearch" type="text">
+        </div>
+        <ul id="templateList" class="template-list"></ul>
+      </div>
+    </div>
+
+    <!-- Middle column: form -->
+    <div class="box editor">
+      <div class="box-title">Label Details</div>
+      <div class="box-body">
+        <div id="emptyState" class="empty">No template selected. Select a template from the list on the left.</div>
+        <form id="labelForm" hidden autocomplete="off">
+          <table class="info">
+            <tr><th>Template:</th><td id="tplName"></td></tr>
+            <tr><th>Label Size:</th><td id="tplMedia"></td></tr>
+            <tr><th>Description:</th><td id="tplDesc"></td></tr>
+          </table>
+          <div class="section">Field Values</div>
+          <div id="fields" class="fields"></div>
+          <div class="note"><span class="req">*</span> Required field</div>
+          <div class="button-row">
+            <button type="button" id="clearBtn" class="btn">Clear Fields</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right column: preview and print -->
+    <div class="right-col">
+      <div class="box preview">
+        <div class="box-title">Print Preview</div>
+        <div class="box-body">
+          <div class="preview-stage">
+            <img id="previewImg" alt="Label preview" hidden>
+            <div id="previewMsg" class="empty">No preview available.</div>
+          </div>
+          <table class="form-table print-controls">
+            <tr>
+              <th><label for="agentSelect">Printer:</label></th>
+              <td><select id="agentSelect"></select></td>
+            </tr>
+            <tr>
+              <th><label for="copies">Copies:</label></th>
+              <td><input id="copies" type="number" min="1" max="20" value="1" class="small"></td>
+            </tr>
+          </table>
+          <div class="button-row">
+            <button id="printBtn" class="btn btn-primary" disabled>Print Label</button>
+          </div>
+          <div id="printMsg" class="msg" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="box jobs">
+        <div class="box-title">Print Job History</div>
+        <div class="box-body nopad">
+          <table class="grid">
+            <thead>
+              <tr><th>Time</th><th>Template</th><th>Content</th><th>Qty</th><th>User</th><th>Status</th></tr>
+            </thead>
+            <tbody id="jobList"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Label Printing System v1.0</div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>

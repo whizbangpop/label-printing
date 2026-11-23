@@ -1,0 +1,34 @@
+name: Brother QL Print Agent
+version: "1.0.0"
+slug: brother_ql_agent
+description: Prints labels sent from your remote label server on a USB Brother QL printer. Outbound connection only – no port forwarding.
+url: https://github.com/whizbangpop/label-printing
+arch:
+  - aarch64
+  - armv7
+  - amd64
+init: false
+startup: application
+boot: auto
+usb: true
+udev: true
+options:
+  server_url: "wss://labels.example.com/agent"
+  agent_token: ""
+  cf_access_client_id: ""
+  cf_access_client_secret: ""
+  agent_id: "home-ql700"
+  agent_name: "Home QL-700"
+  printer_model: "QL-700"
+  printer: ""
+  log_level: info
+schema:
+  server_url: str
+  agent_token: password
+  cf_access_client_id: str
+  cf_access_client_secret: password
+  agent_id: match(^[A-Za-z0-9_.-]{1,64}$)
+  agent_name: str
+  printer_model: list(QL-500|QL-550|QL-560|QL-570|QL-580N|QL-650TD|QL-700|QL-710W|QL-720NW|QL-800|QL-810W|QL-820NWB|QL-1050|QL-1060N|QL-1100|QL-1110NWB)
+  printer: str?
+  log_level: list(debug|info|warning|error)

@@ -1,0 +1,26 @@
+configuration:
+  server_url:
+    name: Server URL
+    description: WebSocket address of the label server's agent endpoint, e.g. wss://labels.example.com/agent
+  agent_token:
+    name: Agent token
+    description: Must match AGENT_TOKEN on the label server.
+  cf_access_client_id:
+    name: Cloudflare Access client ID
+    description: Service token Client ID (ends in .access). Leave empty if /agent is not behind Access.
+  cf_access_client_secret:
+    name: Cloudflare Access client secret
+    description: Service token Client Secret.
+  agent_id:
+    name: Agent ID
+    description: Unique identifier for this printer location (letters, numbers, dot, dash, underscore).
+  agent_name:
+    name: Display name
+    description: Name shown in the printer picker on the website.
+  printer_model:
+    name: Printer model
+  printer:
+    name: Printer address (optional)
+    description: Leave empty to auto-select the USB printer for the chosen model. Otherwise e.g. usb://0x04f9:0x2042, file:///dev/usb/lp0 or tcp://192.168.1.50:9100
+  log_level:
+    name: Log level

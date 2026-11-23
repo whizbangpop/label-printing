@@ -1,0 +1,15 @@
+{
+  "id": "address",
+  "name": "Address label",
+  "description": "Name and postal address on a standard 62 × 29 mm address label (DK-11209).",
+  "category": "Post",
+  "label": "62x29",
+  "fields": [
+    { "name": "name", "label": "Name", "type": "text", "required": true, "placeholder": "Jane Smith" },
+    { "name": "address", "label": "Address", "type": "textarea", "required": true, "placeholder": "12 High Street\nLondon\nSW1A 1AA" }
+  ],
+  "elements": [
+    { "type": "text", "x": 24, "y": 14, "w": 648, "h": 66, "text": "{{name}}", "fontSize": 52, "bold": true, "wrap": false, "valign": "top" },
+    { "type": "text", "x": 24, "y": 86, "w": 648, "h": 172, "text": "{{address}}", "fontSize": 40, "minFontSize": 18, "valign": "top", "lineHeight": 1.1 }
+  ]
+}

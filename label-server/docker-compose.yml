@@ -1,0 +1,24 @@
+services:
+  label-server:
+    build: .
+    image: label-server:latest
+    container_name: label-server
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./data/templates:/data/templates   # your own templates (override built-ins by id)
+      - ./data/fonts:/data/fonts           # optional extra .ttf/.otf fonts
+    # No ports published: the only way in is through the Cloudflare tunnel below.
+    # Uncomment for local testing on http://localhost:3000
+    # ports:
+    #   - "3000:3000"
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: label-cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN}
+    depends_on:
+      - label-server

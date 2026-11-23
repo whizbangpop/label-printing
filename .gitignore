@@ -1,0 +1,9 @@
+node_modules/
+.env
+label-server/data/templates/*
+label-server/data/fonts/*
+!label-server/data/templates/.gitkeep
+!label-server/data/fonts/.gitkeep
+__pycache__/
+*.pyc
+.DS_Store

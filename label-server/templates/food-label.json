@@ -1,0 +1,26 @@
+{
+  "id": "food-label",
+  "name": "Food / leftovers label",
+  "description": "What it is, when it was made, use-by date and allergens. 62 mm tape, 40 mm long.",
+  "category": "Kitchen",
+  "label": "62",
+  "lengthMm": 40,
+  "fields": [
+    { "name": "item", "label": "Item", "type": "text", "required": true, "placeholder": "Chicken curry" },
+    { "name": "made", "label": "Made on", "type": "date", "default": "today" },
+    { "name": "useBy", "label": "Use by", "type": "date" },
+    { "name": "allergens", "label": "Allergens", "type": "text", "placeholder": "Dairy, nuts" },
+    { "name": "frozen", "label": "Frozen", "type": "checkbox" }
+  ],
+  "elements": [
+    { "type": "text", "x": 0, "y": 0, "w": 696, "h": 110, "text": "{{item|upper}}", "fontSize": 64, "minFontSize": 30, "bold": true, "background": "black", "align": "center", "padding": 12 },
+    { "type": "text", "x": 24, "y": 128, "w": 200, "h": 50, "text": "Made", "fontSize": 30 },
+    { "type": "text", "x": 224, "y": 128, "w": 450, "h": 50, "text": "{{made|date}}", "fontSize": 40, "bold": true, "align": "right" },
+    { "type": "line", "x1": 24, "y1": 190, "x2": 672, "y2": 190, "width": 2 },
+    { "type": "text", "x": 24, "y": 202, "w": 200, "h": 60, "text": "Use by", "fontSize": 30, "showIf": "useBy" },
+    { "type": "text", "x": 224, "y": 202, "w": 450, "h": 60, "text": "{{useBy|date}}", "fontSize": 48, "bold": true, "align": "right", "showIf": "useBy" },
+    { "type": "line", "x1": 24, "y1": 276, "x2": 672, "y2": 276, "width": 2, "showIf": "useBy" },
+    { "type": "text", "x": 24, "y": 290, "w": 648, "h": 120, "text": "Allergens: {{allergens}}", "fontSize": 34, "minFontSize": 18, "valign": "top", "showIf": "allergens" },
+    { "type": "text", "x": 476, "y": 410, "w": 196, "h": 50, "text": "FROZEN", "fontSize": 30, "bold": true, "background": "black", "align": "center", "showIf": "frozen" }
+  ]
+}

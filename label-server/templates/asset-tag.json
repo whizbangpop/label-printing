@@ -1,0 +1,23 @@
+{
+  "id": "asset-tag",
+  "name": "Asset tag with QR",
+  "description": "Inventory tag: QR code, asset ID, description and owner. 62 mm tape, 30 mm long.",
+  "category": "Inventory",
+  "label": "62",
+  "lengthMm": 30,
+  "fields": [
+    { "name": "assetId", "label": "Asset ID", "type": "text", "required": true, "placeholder": "IT-00421", "maxLength": 24 },
+    { "name": "description", "label": "Description", "type": "text", "placeholder": "Dell U2723QE monitor" },
+    { "name": "owner", "label": "Owner / location", "type": "text", "placeholder": "Office 2" },
+    { "name": "link", "label": "QR link (optional)", "type": "text", "placeholder": "https://…", "help": "If empty, the QR code contains the asset ID." }
+  ],
+  "elements": [
+    { "type": "qr", "x": 12, "y": 12, "size": 330, "value": "{{link}}", "showIf": "link" },
+    { "type": "qr", "x": 12, "y": 12, "size": 330, "value": "{{assetId}}", "hideIf": "link" },
+    { "type": "text", "x": 356, "y": 14, "w": 326, "h": 40, "text": "PROPERTY OF", "fontSize": 26, "bold": true, "background": "black", "align": "center" },
+    { "type": "text", "x": 356, "y": 62, "w": 326, "h": 96, "text": "{{assetId}}", "fontSize": 72, "bold": true, "wrap": false, "minFontSize": 28 },
+    { "type": "text", "x": 356, "y": 164, "w": 326, "h": 116, "text": "{{description}}", "fontSize": 34, "minFontSize": 18, "valign": "top" },
+    { "type": "line", "x1": 356, "y1": 288, "x2": 682, "y2": 288, "width": 2, "showIf": "owner" },
+    { "type": "text", "x": 356, "y": 294, "w": 326, "h": 50, "text": "{{owner}}", "fontSize": 28, "minFontSize": 16, "wrap": false }
+  ]
+}

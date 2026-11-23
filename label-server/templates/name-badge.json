@@ -1,0 +1,20 @@
+{
+  "id": "name-badge",
+  "name": "Name badge",
+  "description": "Large name with a subtitle, printed across 62 mm tape at 100 mm long.",
+  "category": "Events",
+  "label": "62",
+  "lengthMm": 100,
+  "rotate": 90,
+  "fields": [
+    { "name": "name", "label": "Name", "type": "text", "required": true, "placeholder": "Alex Morgan" },
+    { "name": "subtitle", "label": "Role / company", "type": "text", "placeholder": "Engineering" },
+    { "name": "event", "label": "Event", "type": "text", "placeholder": "Open Day 2026" }
+  ],
+  "elements": [
+    { "type": "text", "x": 0, "y": 0, "w": 1181, "h": 96, "text": "{{event|upper}}", "fontSize": 48, "bold": true, "background": "black", "align": "center", "showIf": "event" },
+    { "type": "text", "x": 40, "y": 120, "w": 1101, "h": 330, "text": "{{name}}", "fontSize": 160, "minFontSize": 48, "bold": true, "align": "center" },
+    { "type": "line", "x1": 240, "y1": 470, "x2": 941, "y2": 470, "width": 4, "showIf": "subtitle" },
+    { "type": "text", "x": 40, "y": 490, "w": 1101, "h": 170, "text": "{{subtitle}}", "fontSize": 80, "minFontSize": 30, "align": "center" }
+  ]
+}
